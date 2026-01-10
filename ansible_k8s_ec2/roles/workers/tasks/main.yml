@@ -1,0 +1,16 @@
+- name: Fetch kubeadm join command from master
+  slurp:
+    src: /tmp/kubeadm_join.sh
+  delegate_to: master1
+  register: join_script
+
+- name: Save join script locally on worker
+  copy:
+    content: "{{ join_script.content | b64decode }}"
+    dest: /tmp/kubeadm_join.sh
+    mode: '0755'
+
+- name: Join Kubernetes cluster
+  command: sh /tmp/kubeadm_join.sh
+  args:
+    creates: /etc/kubernetes/kubelet.conf

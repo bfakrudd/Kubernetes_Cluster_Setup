@@ -1,0 +1,2 @@
+# command to scp files from bastion host 
+scp -o "ProxyJump user@bastion-ip" app.zip user@private-machine-ip:/home/user/

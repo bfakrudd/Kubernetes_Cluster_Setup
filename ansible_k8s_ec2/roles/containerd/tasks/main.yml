@@ -1,0 +1,15 @@
+- name: Install containerd
+  yum:
+    name: containerd
+    state: present
+
+- name: Configure containerd
+  shell: |
+    containerd config default > /etc/containerd/config.toml
+    systemctl restart containerd
+
+- name: Enable containerd
+  systemd:
+    name: containerd
+    enabled: yes
+    state: started
