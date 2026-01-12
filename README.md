@@ -22,7 +22,6 @@ Before you begin, ensure your local environment has the following:
 Navigate to the Terraform directory to define your VPC, subnets, and EC2 instances.
 
 <pre>
-Bash
 mkdir deploy_Ec2_k8s
 cd deploy_Ec2_k8s
 # Place your main.tf, variables.tf, and outputs.tf here
@@ -31,7 +30,6 @@ cd deploy_Ec2_k8s
 
 Run the following commands to provision the hardware:
 <pre>
-Bash
 terraform init              # Initialize provider plugins
 terraform plan -out=myplan   # Review the resource creation plan
 terraform apply "myplan"     # Execute the plan to create AWS resources       
@@ -42,8 +40,6 @@ terraform apply "myplan"     # Execute the plan to create AWS resources
 
 Once the EC2 instances are running, use Ansible to install the Kubernetes runtime.
 <pre>
-Bash
-
 cd ../ansible_k8s_ec2
 ansible-playbook -i inventory.ini site.yml
 </pre>
@@ -66,7 +62,6 @@ This command should list all nodes in the cluster with their status as "Ready."
 
 Project Structure
 <pre>
-PlainText
 .
 ├── ansible_k8s_ec2/           # Ansible configuration files
 │   ├── inventory.ini          # IP addresses of AWS instances
