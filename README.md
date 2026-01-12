@@ -38,6 +38,42 @@ After the Ansible playbook has completed, verify that the Kubernetes cluster is 
 kubectl get nodes
 You should see the master and worker nodes listed as ready.
 
+Directory Structure:
+.
+├── ansible_k8s_ec2
+│   ├── ansible.cfg
+│   ├── inventory.ini
+│   ├── roles
+│   │   ├── cni
+│   │   │   └── tasks
+│   │   │       └── main.yml
+│   │   ├── common
+│   │   │   └── tasks
+│   │   │       └── main.yml
+│   │   ├── containerd
+│   │   │   └── tasks
+│   │   │       └── main.yml
+│   │   ├── kubernetes
+│   │   │   └── tasks
+│   │   │       └── main.yml
+│   │   ├── master
+│   │   │   └── tasks
+│   │   │       └── main.yml
+│   │   └── workers
+│   │       └── tasks
+│   │           └── main.yml
+│   └── site.yml
+├── deploy_Ec2_k8s
+│   ├── linux_command.txt
+│   ├── main.tf
+│   ├── newplan
+│   ├── outputs.tf
+│   ├── terraform.tfstate
+│   ├── terraform.tfstate.backup
+│   ├── terraform.tfvars
+│   └── variables.tf
+└── README.md
+
 Conclusion
 You have successfully set up a Kubernetes cluster on AWS Cloud using Terraform and Ansible. You can now deploy your applications to the cluster and manage them using Kubernetes.
 
